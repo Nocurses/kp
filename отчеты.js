@@ -50,7 +50,7 @@ let patReport = document.getElementById('pat-report-rez')
 
 if (localStorage.id) {patCollect.value = localStorage.id}
 
-let timeOptions = ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'];
+let timeOptions = ['00:00', '02:00', '05:00', '12:00', '14:00', '16:00', '18:00'];
 let timeOption = []
 let timeText = document.getElementById('another-time')
 for (let i = 0; i < timeOptions.length; i++) {
@@ -84,8 +84,11 @@ function makePat() {
       patLeading = '[link' + patLeaders[0] + '] [' + patLeaders[0] + '] (ведущий)'
       if (patLeaders[1]) {patLeading = patLeading + ', [link' + patLeaders[1] + '] [' + patLeaders[1] + '] (ведущий)'}
 
-      let patPartys = patPart.value.split(' ')
-      patParty = '[b]Участники:[/b] ' + patLeading
+      let patPartys1 = patPart.value.split(' ')
+      patParty1 = '[b]Участники первого маршрута:[/b]'
+
+      let patPartys2 = patPart.value.split(' ')
+      patParty2 = '[b]Участники второго маршрута:[/b] '
 
       if (patPart.value) {
       for (let j = 0; j < patPartys.length; j++) {
