@@ -82,7 +82,7 @@ function makePat() {
       if (patLeaders[1]) {patLeading = patLeading + ', [link' + patLeaders[1] + '] [' + patLeaders[1] + '] (ведущий)'}
 
       let patPartys = patPart.value.split(' ')
-      patParty = '[b]Участники первого маршрута:[/b]'
+      patParty = '[b]Участники первого маршрута:[/b]' + patLeading
 
       if (patPart.value) {
       for (let j = 0; j < patPartys.length; j++) {
