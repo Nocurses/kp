@@ -81,11 +81,8 @@ function makePat() {
       patLeading = '[link' + patLeaders[0] + '] [' + patLeaders[0] + '] (ведущий)'
       if (patLeaders[1]) {patLeading = patLeading + ', [link' + patLeaders[1] + '] [' + patLeaders[1] + '] (ведущий)'}
 
-      let patPartys1 = patPart.value.split(' ')
-      patParty1 = '[b]Участники первого маршрута:[/b]'
-
-      let patPartys2 = patPart.value.split(' ')
-      patParty2 = '[b]Участники второго маршрута:[/b] '
+      let patPartys = patPart.value.split(' ')
+      patParty = '[b]Участники первого маршрута:[/b]'
 
       if (patPart.value) {
       for (let j = 0; j < patPartys.length; j++) {
