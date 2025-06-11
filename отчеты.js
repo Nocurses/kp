@@ -349,16 +349,13 @@ function vmakePat() {
 
       if (vpatPart.value) {
       let vpatPartys = vpatPart.value.split(' ')
-      vpatParty = 'Участники: [link' + vpatPartys[0] + '] [' + vpatPartys[0] + ']'
+      vpatParty = 'Участники: [link' + vpatPartys[0] + ']'
       for (let j = 1; j < vpatPartys.length; j++) {
          vpatParty = vpatParty + ', [link' + vpatPartys[j] + '] [' + vpatPartys[j] + ']'
       }
    } else {vpatParty = 'Участники: -'}
       
-      vpatReport.value = '[u]Лагерный патруль, ' + data.getDate() + '.' + month + ' | ' + timeSelect.value.toString().padStart(2, '0') + '[/u]'
-
-      vpatReport.style.height = 'auto';
-      vpatReport.style.height = `${vpatReport.scrollHeight}px`;
+      vpatReport.value = '[u]Отчёт о внешнем патруле, дата и время — ' + data.getDate() + '.' + month + ' | ' + timeSelect.value.toString().padStart(2, '0') + '[/u]';
 
       localStorage.id = vpatCollect.value
    }
