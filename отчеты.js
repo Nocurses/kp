@@ -73,11 +73,10 @@ function makePat() {
       if (month.toString().length == 1) {
          month = `0${month}`
       }
-	 
-      patData = '[u]Отчёт о патруле, дата и время — ' + data.getDate() + '.' + month + '.'().toString().substr(2,2) + ' | ' +  if (timeText.value) { patTime = '[b]Время сбора:[/b] ' + timeText.value }
-      else { patTime = timeSelect.value } '[/u]';
+      patData = '[b]Лагерный патруль, ' + data.getDate() + '.' + month + '.' + '[/b]';
       
-      
+      if (timeText.value) { patTime = '[b]Время сбора:[/b] ' + timeText.value }
+      else { patTime = '[b]Время:[/b] ' + timeSelect.value }
       
       patCollecting = '[b]Собирающий:[/b] [link' + patCollect.value + '] [' + patCollect.value + ']'
       
