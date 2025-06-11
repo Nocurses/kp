@@ -73,10 +73,7 @@ function makePat() {
       if (month.toString().length == 1) {
          month = `0${month}`
       }
-      patData = '[u]Лагерный патруль, ' + data.getDate() + '.' + month + ' | ' + timeSelect.value.toString().padStart(2, '0'); + '[/u]';
-      
-      if (timeText.value) { patTime = '[b]Время сбора:[/b] ' + timeText.value }
-      else { patTime = '[b]Время:[/b] ' + timeSelect.value }
+      patData = '[u]Лагерный патруль, ' + data.getDate() + '.' + month + ' | ' + timeSelect.value.toString().padStart(2, '0') + '[/u]';
       
       patCollecting = '[b]Собирающий:[/b] [link' + patCollect.value + '] [' + patCollect.value + ']'
       
@@ -316,7 +313,7 @@ let vpatReport = document.getElementById('v-pat-report-rez')
 
 if (localStorage.id) {vpatCollect.value = localStorage.id}
 
-let vtimeOptions = ['1:00', '3:30', '5:00', '7:00', '9:00', '11:00', '13:00', '15:00', '19:00', '21:00', '23:00'];
+let vtimeOptions = ['00:00', '02:00', '05:00', '12:00', '14:00', '16:00', '18:00'];
 let vtimeOption = []
 let vtimeText = document.getElementById('v-another-time')
 for (let i = 0; i < vtimeOptions.length; i++) {
@@ -358,7 +355,7 @@ function vmakePat() {
       }
    } else {vpatParty = 'Участники: -'}
       
-      vpatReport.value = `[b]Отчёт о пограничном патруле.[/b]\n${vpatData}\n${vpatTime}\n${vpatCollecting}\n${vpatLeading}\n${vpatParty}`
+      vpatReport.value = '[u]Лагерный патруль, ' + data.getDate() + '.' + month + ' | ' + timeSelect.value.toString().padStart(2, '0') + '[/u]'
 
       vpatReport.style.height = 'auto';
       vpatReport.style.height = `${vpatReport.scrollHeight}px`;
