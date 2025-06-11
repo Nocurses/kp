@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Отчеты</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <ul class="nav">
+      <button>Скрыть</button>
+      <li><a href="#Лагерный патруль">Лагерный патруль</a></li>
+      <li><a href="#Лагерный дозор">Лагерный дозор</a></li>
+      <li><a href="#Лекции и Сказки">Лекции и Сказки</a></li>
+      <li><a href="#Игры">Игры</a></li>
+      <li><a href="#Пограничный патруль">Пограничный патруль</a></li>
+      <li><a href="#Дозор">Дозор</a></li>
+      <li><a href="#Охотничий патруль">Охотничий патруль</a></li>
+      <li><a href="#Веточник">Травники</a></li>
+      <li><a href="#Докторский патруль">Докторский патруль</a></li>
+      <li><a href="#Экспедиция">Экспедиция</a></li>
+      <li><a href="#Морская вылазка">Морская вылазка</a></li>
+      <li><a href="#Грушевание">Грушевание</a></li>
+      <li><a href="#Запрос медали">Запрос медали</a></li>
+      <li><a href="#Запрос трофея">Запрос трофея</a></li>
+   </ul>
+
+<div class="main">
+   <img src="img/logo.png">
+   <hr>
+<div class="contaner patrol"><h2 id="Лагерный патруль">Лагерный патруль</h2>
+   <div class="report">
+      <label>Время сбора: <select id="time"></select><input id ='another-time' type="text" placeholder="Другое время"></label>
+      <label>Собирающий: <input id='collect' type='text' placeholder="1568535"></label>
+      <label>Ведущий(ие): <input id="leader" type="text" placeholder="1568535 1629378"></label>
+      <label id="party-label">Участники: <input id='part' type="text" placeholder="1568535 1629378 2410"></label>
+      <button id="pat-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="pat-report-rez"></textarea>
+      <button id="pat-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner watch"><h2 id="Лагерный дозор">Лагерный дозор</h2>
+   <div class="report">
+      <label>Начало: <input type="text" id="watch-start" placeholder="чч:мм"></label>
+      <label>Конец: <input type="text" id="watch-end" placeholder="чч:мм"></label>
+      <label>Дозорный: <input type='text' id='watcher-input' placeholder="1568535"></label>
+      <label>Маршрут: <select id="watch-path"><option>A</option><option>Б</option><option>без деления на ветви</option></select></label>
+      <button id="watch-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="watch-rep-rez"></textarea>
+      <button id="watch-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner lecture"><h2 id="Лекции и Сказки">Лекции и Сказки</h2>
+   <div class="report">
+      <label>Время: <input type="text" id="lec-time" placeholder="чч:мм"></label>
+      <label>Ведущий: <input type="text" id="lec-id" placeholder="1568535"></label>
+      <span class="lec-st">Вид: <label>Лекция<input id="lec-sel" type="radio" name="what-tell" value="лекция"></label><label>Сказка<input id="st-sel" type="radio" name="what-tell" value="сказка"></label></span>
+      <label class="hidden lec">Тема лекции/сказки: <input class="hidden" id="st-name" type="text" placeholder="Название сказки"><select class="hidden" id="lec-name"></select></label>
+      <label class="hidden lec">Участники: <input type="text" id="lec-party" placeholder="1568535м 1629378"></label>
+      <span class="tooltip">Если малыш отвечал на вопросы лекции, то после айди написать букву "м", например, 1568535м</span>
+      <button class="hidden lec" id="lec-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="lec-rep-rez"></textarea>
+      <button id="lec-copy">Скопировать отчет</button>
+   </div>
+</div> 
+<hr>
+<div class="contaner games"><h2 id="Игры">Игры</h2>
+   <div class="report">
+      <label>Время начала: <input type="text" id="g-start" placeholder="чч:мм"></label>
+      <label>Время конца: <input type="text" id="g-end" placeholder="чч:мм"></label>
+      <label>Ведущий: <input type="text" id="g-id" placeholder="1568535"></label>
+      <label>Участники + монетки: <input type="text" id="g-party" placeholder="1568535+10 1629378+20"></label>
+      <button id="g-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="g-rep-rez"></textarea>
+      <button id="g-copy">Скопировать отчет</button>
+   </div>
+</div> 
+<hr>
+<div class="contaner patrol"><h2 id="Пограничный патруль">Пограничный патруль</h2>
+   <div class="report">
+      <label>Время сбора: <select id="v-time"></select></label>
+      <label>Собирающий: <input id='v-collect' type='text' placeholder="1568535"></label>
+      <label>Ведущий(ие): <input id="v-leader" type="text" placeholder="1568535 (А) 1629378 (Б)"></label>
+      <span class="tooltip">Первым указывается ведущий маршрута А, вторым - маршрута Б. В скобках ничего писать не нужно!</span>
+      <label id="v-party-label">Участники: <input id='v-part' type="text" placeholder="1568535 1629378 2410"></label>
+      <button id="v-pat-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="v-pat-report-rez"></textarea>
+      <button id="v-pat-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner doz"><h2 id="Дозор">Дозор</h2>
+   <div class="report">
+      <label>Начало: <input type="text" id="d-start" placeholder="чч:мм"></label>
+      <label>Конец: <input type="text" id="d-end" placeholder="чч:мм"></label>
+      <label>Дозорный: <input id='der-input' type='text' placeholder="1568535"></label>
+      <span class="d-st">Вид: <label><i>Пассивный</i><input id="pas-sel" type="radio" name="what-d" value="pas"></label><label><i>Активный</i><input id="act-sel" type="radio" name="what-d" value="act"></label></span>
+      <label id="pas-path" class="hidden">Локация: <select id="pas-d-path"><option>Дыра в Корабле</option><option>Извилистая тропа</option><option>Тихий залив</option><option>Непроходимая глушь</option></select></label>
+      <label id="act-path" class="hidden">Маршрут: <select id="act-d-path"><option>Маршрут А</option><option>Маршрут Б</option><option>Маршрут В</option></select></label>
+      <button class="hidden" id="d-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="d-rep-rez"></textarea>
+      <button id="d-copy">Скопировать отчет</button>
+   </div>
+</div><hr>
+<div class="contaner"><h2 id="Охотничий патруль">Охотничий патруль</h2>
+   <div class="report">
+      <label>Время сбора: <select id="ox-time"></select></label>
+      <label>Собирающий: <input id="ox-col" type="text" placeholder="1568535"></label>
+      <label>Ведущий: <input id="ox-ved" type="text" placeholder="1568535"></label>
+      <label>Участники: <input id="ox-p" type="text" placeholder="1568535 0/0/2 1629378 0/7/1"></label>
+      <label>Помощники: <input id="ox-pom" type="text" placeholder="146383 (Или оставить пустым)"></label>
+      <button id="ox-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="ox-rep-rez"></textarea>
+      <button id="ox-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner trav"><h2 id="Веточник">Веточник/травник/мховник</h2>
+   <div class="report">
+      <label>Собирающий: <input id='trav-col' type='text' placeholder="1568535"></label>
+      <label>Участники: <input id="trav-p" type="text" placeholder="1568535 1629378"></label>
+      <span>Вид:
+         <label><i>Травник</i> <input type="radio" value="травнике" name="trav-w"></label>
+         <label><i>Мховник</i> <input type="radio" value="мховнике" name="trav-w"></label>
+         <label><i>Веточник</i> <input type="radio" value="веточнике" name="trav-w"></label>
+      </span>
+      <button id="trav-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="trav-rep-rez"></textarea>
+      <button id="trav-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner doc"><h2 id="Докторский патруль">Докторский патруль</h2>
+   <div class="report">
+      <label>Собирающий: <input id="doc-col" type="text" placeholder="1568535"></label>
+      <label>Участники: <input id="doc-p" type="text" placeholder="1568535+5 1629378+7"></label>
+      <label>Помощники: <input id="doc-pom" type="text" placeholder="146383 (Или оставить пустым)"></label>
+      <button id="doc-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="doc-rep-rez"></textarea>
+      <button id="doc-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner"><h2 id="Экспедиция">Экспедиция</h2>
+   <div class="report">
+      <label>Собирающий: <input id="exp-col" type="text" placeholder="1568535"></label>
+      <label>Участники: <input id="exp-p" type="text" placeholder="72 1629378"></label>
+      <span class="tooltip">Себя указывать не нужно!</span>
+      <span><label><input type="radio" value="дневной" name="exp-w"><i>Дневная</i></label><label><input type="radio" value="вечерней" name="exp-w"><i>Вечерняя</i></label></span>
+      <button id="exp-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="exp-rep-rez"></textarea>
+      <button id="exp-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner"><h2 id="Морская вылазка">Морская вылазка</h2>
+   <div class="report">
+      <label>Навигатор: <input id="nav-id" type="text" placeholder="1568535"></label>
+      <label>Участники: <input id="nav-party" type="text" placeholder="1629378 2410"></label>
+      <label>Скриншоты до и после <input id="nav-scr" type="text" placeholder="http://d.zaix.ru/Jfvj.png http://d.zaix.ru/Jk3U.png"></label>
+      <span class="tooltip">Оставить пустым, если отправлены в беседу</span>
+      <button id="nav-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="nav-rep-rez"></textarea>
+      <button id="nav-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner"><h2 id="Грушевание">Грушевание</h2>
+   <div class="report">
+      <label>Грушующий: <input id="grush-id" type="text" placeholder="1568535"></label>
+      <label>Время начала: <input id="grush-start" type="text" placeholder="чч:мм"></label>
+      <label>Время конца: <input id="grush-end" type="text" placeholder="чч:мм"></label>
+      <label>Роль: <select id="grush-role">
+         <option>БГ</option>
+         <option>МГ</option>
+         <option>ОГ</option>
+      </select></label>
+      <label class="hidden" id = 'grush-m-h'>Для МГ: <select id="grush-m">
+         <option>МО</option>
+         <option>МР</option>
+      </select></label>
+      <button id="grush-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="grush-rep-rez"></textarea>
+      <button id="grush-copy">Скопировать отчет</button>
+   </div>
+</div>
+<hr>
+<div class="contaner"><h2 id="Запрос медали">Запрос медали</h2>
+   <div class="report">
+      <label>Имя: <input id="medal-name" type="text" placeholder="Цепея"></label>
+      <label>Айди: <input id="medal-id" type="text" placeholder="1568535"></label>
+      <label>Должность: <select id="medal-d">
+         <option>малыш</option>
+         <option>малыш-топотушка</option>
+         <option>юнга</option>
+         <option>матрос</option>
+         <option>старший матрос</option>
+      </select></label>
+      <label>Тип медали: <select id="medal-gr"></select></label>
+      <label class="medal" id = "Для малышей">Медаль: <select></select></label>
+      <label class="hidden medal" id = "За навыки">Медаль: <select></select></label>
+      <label class="hidden medal" id = "Каратели">Медаль: <select></select></label>
+      <label class="hidden medal" id = "Связанные со сферами">Медаль: <select></select></label>
+      <label class="hidden medal" id = "Связанные с отрядами">Медаль: <select></select></label>
+      <label class="hidden medal" id = "Остальные медали">Медаль: <select></select></label>
+      <label class="hidden medal" id = "Отрядные медали">Медаль: <select></select></label>
+      <label>Скриншот(ы): <input type="text" id="m-scr" placeholder="http://d.zaix.ru/Jfvj.png http://d.zaix.ru/Jk3U.png"></label>
+      <button id="m-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="m-rep-rez"></textarea>
+      <button id="m-copy">Скопировать отчет</button>
+   </div>
+   </div>
+   <hr>
+<div class="contaner"><h2 id="Запрос трофея">Запрос трофея</h2>
+   <div class="report">
+      <label>Имя: <input id="trof-name" type="text" placeholder="Цепея"></label>
+      <label>Айди: <input id="trof-id" type="text" placeholder="1568535"></label>
+      <label>Должность: <select id="trof-d">
+         <option>малыш</option>
+         <option>малыш-топотушка</option>
+         <option>юнга</option>
+         <option>матрос</option>
+         <option>старший матрос</option>
+      </select></label>
+      <label>Тип трофея: <select id="trof-gr"></select></label>
+      <label class="trof" id = "Общекомандные трофеи">Трофей: <select></select></label>
+      <label class="hidden trof" id = "Отрядные трофеи">Трофей: <select></select></label>
+      <label class="hidden trof" id = "Должностные трофеи">Трофей: <select></select></label>
+      <label>Скриншот(ы): <input type="text" id="trof-scr" placeholder="http://d.zaix.ru/Jfvj.png http://d.zaix.ru/Jk3U.png"></label>
+      <button id="trof-ok">Составить отчет</button>
+   </div>
+   <div>
+      <textarea id="trof-rep-rez"></textarea>
+      <button id="trof-copy">Скопировать отчет</button>
+   </div>
+   </div>
+</div>
+
+</div>
+
+<script src="отчеты.js"></script>
+</body>
+</html>
