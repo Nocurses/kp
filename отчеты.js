@@ -355,7 +355,7 @@ function vmakePat() {
       }
    } else {vpatParty = 'Участники: -'}
       
-      vpatReport.value = '[u]Отчёт о внешнем патруле, дата и время — ' + data.getDate() + '.' + month + ' | ' + timeSelect.value.toString().padStart(2, '0') + '[/u]';
+      vpatReport.value = '[u]Отчёт о патруле, дата и время — ' + data.getDate() + '.' + month + ' | ' + vtimeOptions.value.toString().padStart(2, '0') + '[/u]';
 
       localStorage.id = vpatCollect.value
    }
