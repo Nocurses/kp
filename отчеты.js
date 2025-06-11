@@ -73,7 +73,7 @@ function makePat() {
       if (month.toString().length == 1) {
          month = `0${month}`
       }
-      patData = '[b]Лагерный патруль, ' + data.getDate() + '.' + month + ' | ' + timeSelect.value + '[/b]';
+      patData = '[u]Лагерный патруль, ' + data.getDate() + '.' + month + ' | ' + timeSelect.value.toString().padStart(2, '0'); + '[/u]';
       
       if (timeText.value) { patTime = '[b]Время сбора:[/b] ' + timeText.value }
       else { patTime = '[b]Время:[/b] ' + timeSelect.value }
